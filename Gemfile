@@ -10,11 +10,13 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'pg'
 gem 'active_model_serializers'
+gem 'responders'
 
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
+  gem 'pry'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'factory_girl_rails', '~> 4.0'
