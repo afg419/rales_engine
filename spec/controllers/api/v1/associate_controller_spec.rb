@@ -9,9 +9,7 @@ associate_controllers_with_models_associated.each do |cma|
       get :index, format: :json, id: m.id, association: cma[:associated1]
 
       expect(response.status).to eq 200
-      relevant_reply = JSON.parse(response.body).map{|x| x["id"]}
-
-      expect(relevant_reply).to eq [i1.id, i2.id]
+      expect(JSON.parse(response.body)).to eq [{"id" => i1.id}, {"id" => i2.id}]
     end
 
     it "Returns associated plural objects to model 2" do
@@ -21,9 +19,7 @@ associate_controllers_with_models_associated.each do |cma|
       get :index, format: :json, id: m.id, association: cma[:associated2]
 
       expect(response.status).to eq 200
-      relevant_reply = JSON.parse(response.body).map{|x| x["id"]}
-
-      expect(relevant_reply).to eq [i1.id, i2.id]
+      expect(JSON.parse(response.body)).to eq [{"id" => i1.id}, {"id" => i2.id}]
     end
 
 

@@ -8,9 +8,7 @@ RSpec.describe Api::V1::AssociateMerchantsController, type: :controller do
     get :index, format: :json, id: m.id, association: "items"
 
     expect(response.status).to eq 200
-    relevant_reply = JSON.parse(response.body).map{|x| x["id"]}
-
-    expect(relevant_reply).to eq [i1.id, i2.id]
+    expect(JSON.parse(response.body)).to eq [{"id" => i1.id}, {"id" => i2.id}]
   end
 
   it "Returns invoices associated to merchant" do
@@ -20,8 +18,7 @@ RSpec.describe Api::V1::AssociateMerchantsController, type: :controller do
     get :index, format: :json, id: m.id, association: "invoices"
 
     expect(response.status).to eq 200
-    relevant_reply = JSON.parse(response.body).map{|x| x["id"]}
-    expect(relevant_reply).to eq [i1.id, i2.id]
+    expect(JSON.parse(response.body)).to eq [{"id" => i1.id}, {"id" => i2.id}]
   end
 
   it "Bails if not associated" do

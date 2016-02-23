@@ -43,6 +43,14 @@
         3,
         null,
         null,
+        null,
+        1,
+        8,
+        18,
+        null,
+        2,
+        null,
+        null,
         null
       ],
       "/Users/aarongreenspan/turing/3module/4week/rales_engine/app/models/merchant.rb": [
@@ -360,8 +368,13 @@
         1,
         1,
         null
+      ],
+      "/Users/aarongreenspan/turing/3module/4week/rales_engine/app/serializers/associated_serializer.rb": [
+        0,
+        0,
+        0
       ]
     },
-    "timestamp": 1456258916
+    "timestamp": 1456260045
   }
 }
