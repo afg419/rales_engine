@@ -1,5 +1,4 @@
 module RandomHelper
-
   def show
     render json: random(controllers_model[params[:controller]])
   end
@@ -14,7 +13,9 @@ private
     {
       "api/v1/random_customers" => Customer,
       "api/v1/random_items" => Item,
-      "api/v1/random_merchants" => Merchant
+      "api/v1/random_merchants" => Merchant,
+      "api/v1/random_invoices" => Invoice,
+      "api/v1/random_transactions" => Transaction,
     }
   end
 end

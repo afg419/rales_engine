@@ -19,6 +19,16 @@ Rails.application.routes.draw do
       get "items/random", to: "random_items#show"
       resources :items
 
+      get "invoices/find", to: "found_invoices#show"
+      get "invoices/find_all", to: "found_invoices#index"
+      get "invoices/random", to: "random_invoices#show"
+      resources :invoices
+
+      get "transactions/find", to: "found_transactions#show"
+      get "transactions/find_all", to: "found_transactions#index"
+      get "transactions/random", to: "random_transactions#show"
+      resources :transactions
+
       # resources :customers
     end
   end

@@ -99,7 +99,9 @@ RSpec.configure do |config|
     [
       [Api::V1::MerchantsController, Merchant],
       [Api::V1::ItemsController, Item],
-      [Api::V1::CustomersController, Customer]
+      [Api::V1::CustomersController, Customer],
+      [Api::V1::TransactionsController, Transaction],
+      [Api::V1::InvoicesController, Invoice]
     ]
   end
 
@@ -107,7 +109,9 @@ RSpec.configure do |config|
     [
       [Api::V1::RandomMerchantsController, Merchant],
       [Api::V1::RandomItemsController, Item],
-      [Api::V1::RandomCustomersController, Customer]
+      [Api::V1::RandomCustomersController, Customer],
+      [Api::V1::RandomTransactionsController, Transaction],
+      [Api::V1::RandomInvoicesController, Invoice]
     ]
   end
 
@@ -115,7 +119,9 @@ RSpec.configure do |config|
     [
       {controller: Api::V1::FoundMerchantsController, model: Merchant, attribute: :name},
       {controller: Api::V1::FoundItemsController, model: Item, attribute: :name},
-      {controller: Api::V1::FoundCustomersController, model: Customer, attribute: :first_name}
+      {controller: Api::V1::FoundCustomersController, model: Customer, attribute: :first_name},
+      {controller: Api::V1::FoundTransactionsController, model: Transaction, attribute: :result},
+      {controller: Api::V1::FoundInvoicesController, model: Invoice, attribute: :status}
     ]
   end
 
