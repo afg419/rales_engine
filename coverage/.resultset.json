@@ -38,17 +38,19 @@
         1,
         1,
         11,
+        null,
         8,
+        null,
         null,
         3,
         null,
         null,
         null,
-        1,
-        8,
-        18,
         null,
-        2,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null
@@ -185,11 +187,13 @@
         7,
         7,
         null,
+        null,
+        1,
+        null,
         null
       ],
       "/Users/aarongreenspan/turing/3module/4week/rales_engine/app/services/found_helper.rb": [
         1,
-        null,
         1,
         15,
         10,
@@ -221,7 +225,6 @@
         6,
         null,
         9,
-        null,
         null,
         null,
         null
@@ -373,8 +376,23 @@
         0,
         0,
         0
+      ],
+      "/Users/aarongreenspan/turing/3module/4week/rales_engine/app/serializers/associated_to_merchant_serializer.rb": [
+        0,
+        0,
+        0
+      ],
+      "/Users/aarongreenspan/turing/3module/4week/rales_engine/app/serializers/invoice_items_serializer.rb": [
+        0,
+        0,
+        0
+      ],
+      "/Users/aarongreenspan/turing/3module/4week/rales_engine/app/serializers/merchant_items_serializer.rb": [
+        0,
+        0,
+        0
       ]
     },
-    "timestamp": 1456260045
+    "timestamp": 1456265235
   }
 }

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+#do revenue.  scope invoices by successful transactions
+#do favorite_customer, favorite_merchant
+#best day is hard
+
   namespace :api do
     namespace :v1, defaults: {format: :json} do
       # resources :items

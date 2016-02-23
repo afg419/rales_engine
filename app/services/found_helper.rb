@@ -1,5 +1,4 @@
 module FoundHelper
-
   def find_all(class_name, finder_params)
     if class_name.first.attributes.include?(finder_params.keys.first)
       case_insensitive_where(class_name, finder_params)
@@ -33,5 +32,4 @@ module FoundHelper
       respond_with class_name.find_by(finder_params)
     end
   end
-
 end

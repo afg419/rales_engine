@@ -16,4 +16,7 @@ class Api::V1::FoundMerchantsController < ApplicationController
     params.permit!
     params.except("controller", "action", "format")
   end
+
+  def serializer_for(finder_params)
+  end
 end

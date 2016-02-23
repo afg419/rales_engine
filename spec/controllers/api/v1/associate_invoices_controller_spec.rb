@@ -9,7 +9,7 @@ RSpec.describe Api::V1::AssociateInvoicesController, type: :controller do
     get :index, format: :json, id: m.id, association: "merchant"
 
     expect(response.status).to eq 200
-    expect(JSON.parse(response.body)).to eq ({"id" => i.id})
+    expect(JSON.parse(response.body)["id"]).to eq i.id
   end
 
   it "Returns customer associated to invoice" do
@@ -20,6 +20,6 @@ RSpec.describe Api::V1::AssociateInvoicesController, type: :controller do
     get :index, format: :json, id: m.id, association: "customer"
 
     expect(response.status).to eq 200
-    expect(JSON.parse(response.body)).to eq ({"id" => i.id})
+    expect(JSON.parse(response.body)["id"]).to eq i.id
   end
 end

@@ -4,6 +4,6 @@ class Api::V1::AssociateMerchantsController < ApplicationController
   respond_to :json
 
   def index
-    get_associated(Merchant.find(params[:id]), params[:association])
+    get_associated(Merchant.find(params[:id]), params[:association], :merchant_id)
   end
 end
