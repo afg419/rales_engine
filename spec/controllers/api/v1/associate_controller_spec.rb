@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-associate_controllers_with_models_associated.each do |cma|
+associate_controllers_with_models_plural_associated.each do |cma|
   RSpec.describe cma[:controller], type: :controller do
     it "Returns associated plural objects to model 1" do
       m = cma[:model].create

@@ -4,6 +4,6 @@ class Api::V1::AssociateInvoicesController < ApplicationController
   respond_to :json
 
   def index
-    get_associated(Invoice.find(params[:id]), params[:association], :invoice_id)
+    get_associated(Invoice.find(params[:id]), params[:association])
   end
 end

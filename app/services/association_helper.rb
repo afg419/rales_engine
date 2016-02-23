@@ -1,5 +1,5 @@
 module AssociationHelper
-  def get_associated(object, association_query, serializer)
+  def get_associated(object, association_query)
     if object.respond_to?(association_query)
       # respond_with only_ids_of(object.send(association_query))
       respond_with object.send(association_query)

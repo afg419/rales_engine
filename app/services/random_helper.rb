@@ -16,6 +16,7 @@ private
       "api/v1/random_merchants" => Merchant,
       "api/v1/random_invoices" => Invoice,
       "api/v1/random_transactions" => Transaction,
+      "api/v1/random_invoice_items" => InvoiceItem
     }
   end
 end

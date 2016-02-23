@@ -97,7 +97,8 @@ RSpec.configure do |config|
       [Api::V1::ItemsController, Item],
       [Api::V1::CustomersController, Customer],
       [Api::V1::TransactionsController, Transaction],
-      [Api::V1::InvoicesController, Invoice]
+      [Api::V1::InvoicesController, Invoice],
+      [Api::V1::InvoiceItemsController, InvoiceItem]
     ]
   end
 
@@ -107,7 +108,8 @@ RSpec.configure do |config|
       [Api::V1::RandomItemsController, Item],
       [Api::V1::RandomCustomersController, Customer],
       [Api::V1::RandomTransactionsController, Transaction],
-      [Api::V1::RandomInvoicesController, Invoice]
+      [Api::V1::RandomInvoicesController, Invoice],
+      [Api::V1::RandomInvoiceItemsController, InvoiceItem]
     ]
   end
 
@@ -121,14 +123,23 @@ RSpec.configure do |config|
     ]
   end
 
-  def associate_controllers_with_models_associated
+  def associate_controllers_with_models_plural_associated
     [
       {controller: Api::V1::AssociateMerchantsController, model: Merchant, associated1: :items, associated2: :invoices},
-      # {controller: Api::V1::AssociateItemsController, model: Item, attribute: :name},
-      # {controller: Api::V1::AssociateCustomersController, model: Customer, attribute: :first_name},
-      # {controller: Api::V1::AssociateTransactionsController, model: Transaction, attribute: :result},
+      {controller: Api::V1::AssociateItemsController, model: Item, associated1: :invoice_items, associated2: :invoice_items},
+      {controller: Api::V1::AssociateCustomersController, model: Customer, associated1: :invoices, associated2: :invoices},
       {controller: Api::V1::AssociateInvoicesController, model: Invoice, associated1: :transactions, associated2: :items}
     ]
   end
 
+
+  def associate_controllers_with_models_singular_associated
+    [
+      {controller: Api::V1::AssociateMerchantsController, model: Merchant, associated1: :items, associated2: :invoices},
+      {controller: Api::V1::AssociateItemsController, model: Item, associated1: :invoice_items, associated2: :invoice_items},
+      {controller: Api::V1::AssociateCustomersController, model: Customer, associated1: :invoices, associated2: :invoices},
+      {controller: Api::V1::AssociateInvoicesController, model: Invoice, associated1: :transactions, associated2: :items},
+      {controller: Api::V1::AssociateInvoicesController, model: InvoiceItem, associated1: :transactions, associated2: :items}
+    ]
+  end
 end

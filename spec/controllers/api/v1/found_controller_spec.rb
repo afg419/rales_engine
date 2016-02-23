@@ -15,7 +15,6 @@ found_controllers_with_models_attributes.each do |cma|
       m1 = cma[:model].create(cma[:attribute] => "#{cma[:model]}1")
       m2 = cma[:model].create(cma[:attribute] => "#{cma[:model]}2")
       get :show, format: :json, cma[:attribute] => "#{cma[:model]}1"
-
       expect(response.status).to eq 200
       expect(JSON.parse(response.body)["id"]).to eq m1.id
     end

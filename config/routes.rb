@@ -17,11 +17,13 @@ Rails.application.routes.draw do
       get "customers/find_all", to: "found_customers#index"
       get "customers/random", to: "random_customers#show"
       resources :customers
+      get "customers/:id/:association", to: "associate_customers#index"
 
       get "items/find", to: "found_items#show"
       get "items/find_all", to: "found_items#index"
       get "items/random", to: "random_items#show"
       resources :items
+      get "items/:id/:association", to: "associate_items#index"
 
       get "invoices/find", to: "found_invoices#show"
       get "invoices/find_all", to: "found_invoices#index"
@@ -33,8 +35,13 @@ Rails.application.routes.draw do
       get "transactions/find_all", to: "found_transactions#index"
       get "transactions/random", to: "random_transactions#show"
       resources :transactions
+      get "transactions/:id/:association", to: "associate_transactions#index"
 
-      # resources :customers
+      get "invoice_items/find", to: "found_invoice_items#show"
+      get "invoice_items/find_all", to: "found_invoice_items#index"
+      get "invoice_items/random", to: "random_invoice_items#show"
+      resources :invoice_items
+      get "invoice_items/:id/:association", to: "associate_invoice_items#index"
     end
   end
 end
