@@ -30,6 +30,6 @@ RSpec.describe Api::V1::AssociateMerchantsController, type: :controller do
 
     expect(response.status).to eq 200
 
-    expect(JSON.parse(response.body)["error"]).to eq "Parameter does not exist on Merchant's Table"
+    expect(JSON.parse(response.body)["error"]).to eq "Parameter does not exist on Table"
   end
 end

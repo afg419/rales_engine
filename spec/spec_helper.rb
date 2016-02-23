@@ -121,4 +121,14 @@ RSpec.configure do |config|
     ]
   end
 
+  def associate_controllers_with_models_associated
+    [
+      {controller: Api::V1::AssociateMerchantsController, model: Merchant, associated1: :items, associated2: :invoices},
+      # {controller: Api::V1::AssociateItemsController, model: Item, attribute: :name},
+      # {controller: Api::V1::AssociateCustomersController, model: Customer, attribute: :first_name},
+      # {controller: Api::V1::AssociateTransactionsController, model: Transaction, attribute: :result},
+      {controller: Api::V1::AssociateInvoicesController, model: Invoice, associated1: :transactions, associated2: :items}
+    ]
+  end
+
 end
