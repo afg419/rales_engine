@@ -142,6 +142,9 @@
         1,
         1,
         1,
+        1,
+        1,
+        1,
         null
       ],
       "/Users/aarongreenspan/turing/3module/4week/rales_engine/app/controllers/api/v1/found_merchants_controller.rb": [
@@ -346,8 +349,19 @@
         1,
         1,
         null
+      ],
+      "/Users/aarongreenspan/turing/3module/4week/rales_engine/app/controllers/api/v1/associate_invoices_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
-    "timestamp": 1456249323
+    "timestamp": 1456250485
   }
 }
