@@ -13,6 +13,7 @@ class Api::V1::FoundMerchantsController < ApplicationController
   private
 
   def finder_params
+    params.permit!
     params.except("controller", "action", "format")
   end
 end
