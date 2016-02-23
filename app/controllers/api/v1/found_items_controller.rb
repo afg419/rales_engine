@@ -1,13 +1,13 @@
-class Api::V1::FoundMerchantsController < ApplicationController
+class Api::V1::FoundItemsController < ApplicationController
   include FoundHelper
   respond_to :json
 
   def show
-    find_first(Merchant, finder_params)
+    find_first(Item, finder_params)
   end
 
   def index
-    find_all(Merchant, finder_params)
+    find_all(Item, finder_params)
   end
 
   private

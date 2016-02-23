@@ -20,6 +20,6 @@ RSpec.describe Api::V1::MerchantsController, type: :controller do
     get :show, format: :json, id: m1.id
 
     expect(response.status).to eq 200
-    # expect(JSON.parse(response.body)["merchants"]).to eq m1
+    expect(JSON.parse(response.body)["name"]).to eq m1.name
   end
 end

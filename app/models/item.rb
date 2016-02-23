@@ -1,10 +1,10 @@
 class Item < ActiveRecord::Base
   belongs_to :merchant
 
-  before_save :insert_slug
+  before_save :format_price
 
-  def insert_slug
-    self.slug = name.parameterize
+  def format_price
+    self.unit_price = (unit_price.to_i/(100.to_f)).round(2).to_s
   end
 
 end

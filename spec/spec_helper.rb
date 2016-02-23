@@ -89,4 +89,7 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  def main_data_types
+    [Customer, Item, Merchant]
+  end
 end
