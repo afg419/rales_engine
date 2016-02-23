@@ -3,15 +3,18 @@ class Api::V1::FoundMerchantsController < ApplicationController
   respond_to :json
 
   def show
-    finder_params = params.except("controller", "action", "format").map do |k,v|
-      [k, capitalize_all(v)]
-    end.to_h
-    respond_with Merchant.find_by(finder_params)
+    if Merchant.first.attributes.include?(finder_params.keys.first)
+      respond_with Merchant.find_by(finder_params)
+    else
+      respond_with ({error: "Parameter does not exist on Merchant's Table"})
+    end
   end
 
   private
 
   def finder_params
-    params.permit(:all)
+    params.except("controller", "action", "format").map do |k,v|
+      [k, capitalize_all(v.downcase)]
+    end.to_h
   end
 end
