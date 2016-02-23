@@ -3,8 +3,8 @@ class CreateCustomers < ActiveRecord::Migration
     create_table :customers do |t|
       t.string :first_name
       t.string :last_name
-
-      t.timestamps null: false
+      t.string :created_at
+      t.string :updated_at
     end
   end
 end

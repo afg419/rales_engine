@@ -10,11 +10,24 @@ class Api::V1::FoundMerchantsController < ApplicationController
     end
   end
 
+  def index
+    if Merchant.first.attributes.include?(finder_params.keys.first)
+      respond_with Merchant.where(finder_params).to_a
+    else
+      respond_with ({error: "Parameter does not exist on Merchant's Table"})
+    end
+  end
+
   private
 
   def finder_params
+    merchant_name = Merchant.pluck(:name)
     params.except("controller", "action", "format").map do |k,v|
-      [k, capitalize_all(v.downcase)]
+      if k == "name"
+        ["slug", v.parameterize]
+      else
+        [k,v]
+      end
     end.to_h
   end
 end
