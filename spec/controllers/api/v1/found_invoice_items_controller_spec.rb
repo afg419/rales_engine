@@ -1,4 +1,4 @@
-RSpec.describe Api::V1::Found::InvoiceItemsController, type: :controller do
+RSpec.describe Api::V1::Finders::InvoiceItemsController, type: :controller do
   it "Returns object by id" do
     m1 = InvoiceItem.create(:unit_price => 10000)
     m2 = InvoiceItem.create(:unit_price => 20000)

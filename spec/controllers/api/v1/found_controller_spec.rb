@@ -2,23 +2,23 @@ require 'rails_helper'
 
 def found_controllers_with_models_attributes
   [
-    {controller: Api::V1::Found::MerchantsController,
+    {controller: Api::V1::Finders::MerchantsController,
       model: Merchant,
       attribute: :name},
 
-    {controller: Api::V1::Found::ItemsController,
+    {controller: Api::V1::Finders::ItemsController,
       model: Item,
       attribute: :name},
 
-    {controller: Api::V1::Found::CustomersController,
+    {controller: Api::V1::Finders::CustomersController,
       model: Customer,
       attribute: :first_name},
 
-    {controller: Api::V1::Found::TransactionsController,
+    {controller: Api::V1::Finders::TransactionsController,
       model: Transaction,
       attribute: :result},
 
-    {controller: Api::V1::Found::InvoicesController,
+    {controller: Api::V1::Finders::InvoicesController,
       model: Invoice,
       attribute: :status}
   ]

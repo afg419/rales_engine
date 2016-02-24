@@ -1,4 +1,4 @@
-class Api::V1::Revenue::MostMerchantsController < ApplicationController
+class Api::V1::Revenues::MostMerchantsController < ApplicationController
   respond_to :json
 
   def index

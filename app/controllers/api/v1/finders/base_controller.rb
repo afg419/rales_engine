@@ -1,4 +1,4 @@
-class Api::V1::Found::BaseController < ApplicationController
+class Api::V1::Finders::BaseController < ApplicationController
   include FoundService
   respond_to :json
 
@@ -13,7 +13,7 @@ class Api::V1::Found::BaseController < ApplicationController
 private
 
   def model
-    controllers_model("found")[params[:controller]]
+    controllers_model("finders")[params[:controller]]
   end
 
   def finder_params

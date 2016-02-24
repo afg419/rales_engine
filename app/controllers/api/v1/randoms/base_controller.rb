@@ -1,4 +1,4 @@
-class Api::V1::Random::BaseController < ApplicationController
+class Api::V1::Randoms::BaseController < ApplicationController
   respond_to :json
 
   def show
@@ -8,7 +8,7 @@ class Api::V1::Random::BaseController < ApplicationController
 private
 
   def model
-    controllers_model("random")[params[:controller]]
+    controllers_model("randoms")[params[:controller]]
   end
 
   def random(class_name)

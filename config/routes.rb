@@ -4,24 +4,24 @@ Rails.application.routes.draw do
     namespace :v1, defaults: {format: :json} do
       resources :merchants, only:[:index, :show] do
         collection do
-          get "/find", to: "found/merchants#show"
-          get "/find_all", to: "found/merchants#index"
-          get "/random", to: "random/merchants#show"
-          get "/revenue", to: "revenue/merchants#index"
-          get "/most_revenue", to: "revenue/most_merchants#index"
+          get "/find", to: "finders/merchants#show"
+          get "/find_all", to: "finders/merchants#index"
+          get "/random", to: "randoms/merchants#show"
+          get "/revenue", to: "revenues/merchants#index"
+          get "/most_revenue", to: "revenues/most_merchants#index"
         end
 
         member do
-          get "/revenue", to: "revenue/merchants#show"
+          get "/revenue", to: "revenues/merchants#show"
           get "/:association", to: "associations/merchants#index"
         end
       end
 
       resources :customers, only:[:index, :show] do
         collection do
-          get "/find", to: "found/customers#show"
-          get "/find_all", to: "found/customers#index"
-          get "/random", to: "random/customers#show"
+          get "/find", to: "finders/customers#show"
+          get "/find_all", to: "finders/customers#index"
+          get "/random", to: "randoms/customers#show"
         end
         member do
           get "/:association", to: "associations/customers#index"
@@ -30,9 +30,9 @@ Rails.application.routes.draw do
 
       resources :items, only: [:index, :show] do
         collection do
-          get "/find", to: "found/items#show"
-          get "/find_all", to: "found/items#index"
-          get "/random", to: "random/items#show"
+          get "/find", to: "finders/items#show"
+          get "/find_all", to: "finders/items#index"
+          get "/random", to: "randoms/items#show"
           get "/most_revenue", to: "most_revenue_items#index"
         end
         member do
@@ -42,9 +42,9 @@ Rails.application.routes.draw do
 
       resources :invoices, only: [:index, :show] do
         collection do
-          get "/find", to: "found/invoices#show"
-          get "/find_all", to: "found/invoices#index"
-          get "/random", to: "random/invoices#show"
+          get "/find", to: "finders/invoices#show"
+          get "/find_all", to: "finders/invoices#index"
+          get "/random", to: "randoms/invoices#show"
         end
         member do
           get "/:association", to: "associations/invoices#index"
@@ -53,24 +53,24 @@ Rails.application.routes.draw do
 
       resources :transactions, only: [:index, :show] do
         collection do
-          get "transactions/find", to: "found/transactions#show"
-          get "transactions/find_all", to: "found/transactions#index"
-          get "transactions/random", to: "random/transactions#show"
+          get "/find", to: "finders/transactions#show"
+          get "/find_all", to: "finders/transactions#index"
+          get "/random", to: "randoms/transactions#show"
         end
 
         member do
-          get "transactions/:id/:association", to: "associations/transactions#index"
+          get "/:association", to: "associations/transactions#index"
         end
       end
 
       resources :invoice_items, only: [:index, :show] do
         collection do
-          get "invoice_items/find", to: "found/invoice_items#show"
-          get "invoice_items/find_all", to: "found/invoice_items#index"
-          get "invoice_items/random", to: "random/invoice_items#show"
+          get "/find", to: "finders/invoice_items#show"
+          get "/find_all", to: "finders/invoice_items#index"
+          get "/random", to: "randoms/invoice_items#show"
         end
         member do
-          get "invoice_items/:id/:association", to: "associations/invoice_items#index"
+          get "/:association", to: "associations/invoice_items#index"
         end
       end
     end
