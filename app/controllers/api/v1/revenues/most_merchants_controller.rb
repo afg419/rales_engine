@@ -4,9 +4,7 @@ class Api::V1::Revenues::MostMerchantsController < ApplicationController
   def index
     merchants = Merchant.all.map do |merchant|
       {'id' => merchant.id, 'name' => merchant.name, 'revenue' => merchant.get_revenue(params[:date])}
-    end
-
-    merchants.sort_by! do |merchant|
+    end.sort_by! do |merchant|
       - merchant['revenue']
     end
 

@@ -1,23 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Merchant, type: :model do
-  it "gets revenue for single merchant" do
-    m = Merchant.create(name: "Carl")
-    t = Transaction.create(result: "success")
-    item = InvoiceItem.create(unit_price: 1000000, quantity: 2)
-    inv = Invoice.create(transactions: [t],
-                             merchant: m,
-                        invoice_items: [item])
-
-    expect(200.00).to eq m.get_revenue.to_f
-  end
-
-  it "gets revenue for multiple merchants" do
+RSpec.describe Api::V1::Revenues::MostMerchantsController, type: :controller do
+  it "Gets top merchant by revenue" do
     m1 = Merchant.create(name: "Carl1")
     m2 = Merchant.create(name: "Carl2")
     t1 = Transaction.create(result: "success")
     t2 = Transaction.create(result: "success")
-    item1 = InvoiceItem.new(unit_price: 10000, quantity: 2)
+    item1 = InvoiceItem.new(unit_price: 20000, quantity: 2)
     item2 = InvoiceItem.new(unit_price: 10000, quantity: 2)
     inv1 = Invoice.create(transactions: [t1],
                              merchant: m1,
@@ -27,6 +16,10 @@ RSpec.describe Merchant, type: :model do
                              merchant: m2,
                         invoice_items: [item2],
                            created_at: "2012-03-16 11:55:05")
-    expect(400.00).to eq Merchant.get_revenue("2012-03-16 11:55:05")
+    get :index, format: :json, quantity: 1
+
+    expect(response.status).to eq 200
+    expect(response.body).to eq "[{\"id\":#{m1.id},\"name\":\"Carl1\",\"revenue\":\"400.0\"}]"
   end
+
 end
