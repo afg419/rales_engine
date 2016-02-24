@@ -128,18 +128,17 @@ RSpec.configure do |config|
       {controller: Api::V1::AssociateMerchantsController, model: Merchant, associated1: :items, associated2: :invoices},
       {controller: Api::V1::AssociateItemsController, model: Item, associated1: :invoice_items, associated2: :invoice_items},
       {controller: Api::V1::AssociateCustomersController, model: Customer, associated1: :invoices, associated2: :invoices},
-      {controller: Api::V1::AssociateInvoicesController, model: Invoice, associated1: :transactions, associated2: :items}
+      {controller: Api::V1::AssociateInvoicesController, model: Invoice, associated1: :transactions, associated2: :invoice_items}
     ]
   end
 
-
   def associate_controllers_with_models_singular_associated
     [
-      {controller: Api::V1::AssociateMerchantsController, model: Merchant, associated1: :items, associated2: :invoices},
-      {controller: Api::V1::AssociateItemsController, model: Item, associated1: :invoice_items, associated2: :invoice_items},
-      {controller: Api::V1::AssociateCustomersController, model: Customer, associated1: :invoices, associated2: :invoices},
-      {controller: Api::V1::AssociateInvoicesController, model: Invoice, associated1: :transactions, associated2: :items},
-      {controller: Api::V1::AssociateInvoicesController, model: InvoiceItem, associated1: :transactions, associated2: :items}
+      {controller: Api::V1::AssociateItemsController, model: Item, associated_model: Merchant, associated_id: :merchant_id, associated: :merchant},
+      {controller: Api::V1::AssociateInvoicesController, model: Invoice, associated_model: Customer, associated_id: :customer_id, associated: :customer},
+      {controller: Api::V1::AssociateInvoicesController, model: Invoice, associated_model: Merchant, associated_id: :merchant_id, associated: :merchant},
+      {controller: Api::V1::AssociateInvoiceItemsController, model: InvoiceItem, associated_model: Item, associated_id: :item_id, associated: :item},
+      {controller: Api::V1::AssociateInvoiceItemsController, model: InvoiceItem, associated_model: Invoice, associated_id: :invoice_id, associated: :invoice}
     ]
   end
 end
