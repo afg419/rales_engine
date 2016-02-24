@@ -1,3 +1,44 @@
+def associate_controllers_with_models_singular_associated
+  [
+    {controller: Api::V1::AssociateItemsController,
+      model: Item,
+      associated_model: Merchant,
+      associated_id: :merchant_id,
+      associated: :merchant},
+
+    {controller: Api::V1::AssociateInvoicesController,
+      model: Invoice,
+      associated_model: Customer,
+      associated_id: :customer_id,
+      associated: :customer},
+
+    {controller: Api::V1::AssociateInvoicesController,
+      model: Invoice,
+      associated_model: Merchant,
+      associated_id: :merchant_id,
+      associated: :merchant},
+
+    {controller: Api::V1::AssociateInvoiceItemsController,
+      model: InvoiceItem,
+      associated_model: Item,
+      associated_id: :item_id,
+      associated: :item},
+
+    {controller: Api::V1::AssociateInvoiceItemsController,
+      model: InvoiceItem,
+      associated_model: Invoice,
+      associated_id: :invoice_id,
+      associated: :invoice},
+
+    {controller: Api::V1::AssociateTransactionsController,
+      model: Transaction,
+      associated_model: Invoice,
+      associated_id: :invoice_id,
+      associated: :invoice}
+  ]
+end
+
+
 associate_controllers_with_models_singular_associated.each do |cma|
   RSpec.describe cma[:controller], type: :controller do
     it "Returns associated plural objects to model 1" do

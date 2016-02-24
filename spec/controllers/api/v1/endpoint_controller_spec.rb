@@ -1,5 +1,15 @@
 require 'rails_helper'
 
+def controllers_with_models
+  [
+    [Api::V1::MerchantsController, Merchant],
+    [Api::V1::ItemsController, Item],
+    [Api::V1::CustomersController, Customer],
+    [Api::V1::TransactionsController, Transaction],
+    [Api::V1::InvoicesController, Invoice],
+    [Api::V1::InvoiceItemsController, InvoiceItem]
+  ]
+end
 
 controllers_with_models.each do |controller_model|
   RSpec.describe controller_model[0], type: :controller do

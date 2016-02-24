@@ -91,54 +91,5 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-  def controllers_with_models
-    [
-      [Api::V1::MerchantsController, Merchant],
-      [Api::V1::ItemsController, Item],
-      [Api::V1::CustomersController, Customer],
-      [Api::V1::TransactionsController, Transaction],
-      [Api::V1::InvoicesController, Invoice],
-      [Api::V1::InvoiceItemsController, InvoiceItem]
-    ]
-  end
 
-  def random_controllers_with_models
-    [
-      [Api::V1::RandomMerchantsController, Merchant],
-      [Api::V1::RandomItemsController, Item],
-      [Api::V1::RandomCustomersController, Customer],
-      [Api::V1::RandomTransactionsController, Transaction],
-      [Api::V1::RandomInvoicesController, Invoice],
-      [Api::V1::RandomInvoiceItemsController, InvoiceItem]
-    ]
-  end
-
-  def found_controllers_with_models_attributes
-    [
-      {controller: Api::V1::FoundMerchantsController, model: Merchant, attribute: :name},
-      {controller: Api::V1::FoundItemsController, model: Item, attribute: :name},
-      {controller: Api::V1::FoundCustomersController, model: Customer, attribute: :first_name},
-      {controller: Api::V1::FoundTransactionsController, model: Transaction, attribute: :result},
-      {controller: Api::V1::FoundInvoicesController, model: Invoice, attribute: :status}
-    ]
-  end
-
-  def associate_controllers_with_models_plural_associated
-    [
-      {controller: Api::V1::AssociateMerchantsController, model: Merchant, associated1: :items, associated2: :invoices},
-      {controller: Api::V1::AssociateItemsController, model: Item, associated1: :invoice_items, associated2: :invoice_items},
-      {controller: Api::V1::AssociateCustomersController, model: Customer, associated1: :invoices, associated2: :invoices},
-      {controller: Api::V1::AssociateInvoicesController, model: Invoice, associated1: :transactions, associated2: :invoice_items}
-    ]
-  end
-
-  def associate_controllers_with_models_singular_associated
-    [
-      {controller: Api::V1::AssociateItemsController, model: Item, associated_model: Merchant, associated_id: :merchant_id, associated: :merchant},
-      {controller: Api::V1::AssociateInvoicesController, model: Invoice, associated_model: Customer, associated_id: :customer_id, associated: :customer},
-      {controller: Api::V1::AssociateInvoicesController, model: Invoice, associated_model: Merchant, associated_id: :merchant_id, associated: :merchant},
-      {controller: Api::V1::AssociateInvoiceItemsController, model: InvoiceItem, associated_model: Item, associated_id: :item_id, associated: :item},
-      {controller: Api::V1::AssociateInvoiceItemsController, model: InvoiceItem, associated_model: Invoice, associated_id: :invoice_id, associated: :invoice}
-    ]
-  end
 end

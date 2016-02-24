@@ -1,5 +1,30 @@
 require 'rails_helper'
 
+def found_controllers_with_models_attributes
+  [
+    {controller: Api::V1::FoundMerchantsController,
+      model: Merchant,
+      attribute: :name},
+
+    {controller: Api::V1::FoundItemsController,
+      model: Item,
+      attribute: :name},
+
+    {controller: Api::V1::FoundCustomersController,
+      model: Customer,
+      attribute: :first_name},
+
+    {controller: Api::V1::FoundTransactionsController,
+      model: Transaction,
+      attribute: :result},
+
+    {controller: Api::V1::FoundInvoicesController,
+      model: Invoice,
+      attribute: :status}
+  ]
+end
+
+
 found_controllers_with_models_attributes.each do |cma|
   RSpec.describe cma[:controller], type: :controller do
     it "Returns object by id" do
