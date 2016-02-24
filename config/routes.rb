@@ -25,6 +25,7 @@ Rails.application.routes.draw do
           get "/random", to: "randoms/customers#show"
         end
         member do
+          get "/favorite_merchant", to: "revenues/customer_has_merchants#show"
           get "/:association", to: "associations/customers#index"
         end
       end
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
           get "/find", to: "finders/items#show"
           get "/find_all", to: "finders/items#index"
           get "/random", to: "randoms/items#show"
-          get "/most_revenue", to: "most_revenue_items#index"
+          get "/most_revenue", to: "revenues/most_items#index"
         end
         member do
           get "/:association", to: "associations/items#index"
@@ -58,7 +59,6 @@ Rails.application.routes.draw do
           get "/find_all", to: "finders/transactions#index"
           get "/random", to: "randoms/transactions#show"
         end
-
         member do
           get "/:association", to: "associations/transactions#index"
         end
