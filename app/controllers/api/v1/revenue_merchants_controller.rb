@@ -3,7 +3,8 @@ class Api::V1::RevenueMerchantsController < ApplicationController
 
   def index
     merchant = Merchant.find(params[:id])
-    revenue = merchant.invoices.successful.reduce(0) do |acc, invoice|
+
+    revenue = merchant.invoices.successful(params[:date]).reduce(0) do |acc, invoice|
       acc + get_revenue(invoice)
     end.round(2)
 
