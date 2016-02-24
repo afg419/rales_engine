@@ -14,11 +14,19 @@ class Invoice < ActiveRecord::Base
     successful
   end
 
+  def self.pending
+    all - successful
+  end
+
   def get_revenue
     invoice_items.reduce(0) do |acc, item|
       acc + item.unit_price.to_f * item.quantity
     end
   end
+
+  # def get_revenue
+  #   invoice_items.sum("unit_price * quantity")
+  # end
 
   def get_revenue_for_item(item)
     invoice_items.where(item: item).reduce(0) do |acc, invoice_item|

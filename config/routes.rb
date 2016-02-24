@@ -10,9 +10,10 @@ Rails.application.routes.draw do
           get "/revenue", to: "revenues/merchants#index"
           get "/most_revenue", to: "revenues/most_merchants#index"
         end
-
         member do
           get "/revenue", to: "revenues/merchants#show"
+          get '/favorite_customer', to: "revenues/merchants_have_customers#show"
+          get '/customers_with_pending_invoices', to: "revenues/merchants_have_customers#index"
           get "/:association", to: "associations/merchants#index"
         end
       end
