@@ -1,6 +1,4 @@
-class Api::V1::AssociateItemsController < ApplicationController
-  include AssociationHelper
-
+class Api::V1::Associations::ItemsController < Api::V1::Associations::BaseController
   respond_to :json
 
   def index

@@ -11,19 +11,19 @@ def associate_controllers_with_models_plural_associated
       model: Merchant,
       associated: :invoices},
 
-    {controller: Api::V1::AssociateItemsController,
+    {controller: Api::V1::Associations::ItemsController,
       model: Item,
       associated: :invoice_items},
 
-    {controller: Api::V1::AssociateCustomersController,
+    {controller: Api::V1::Associations::CustomersController,
       model: Customer,
       associated: :invoices},
 
-    {controller: Api::V1::AssociateInvoicesController,
+    {controller: Api::V1::Associations::InvoicesController,
       model: Invoice,
       associated: :transactions},
 
-    {controller: Api::V1::AssociateInvoicesController,
+    {controller: Api::V1::Associations::InvoicesController,
       model: Invoice,
       associated: :invoice_items}
   ]

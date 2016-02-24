@@ -1,36 +1,36 @@
 def associate_controllers_with_models_singular_associated
   [
-    {controller: Api::V1::AssociateItemsController,
+    {controller: Api::V1::Associations::ItemsController,
       model: Item,
       associated_model: Merchant,
       associated_id: :merchant_id,
       associated: :merchant},
 
-    {controller: Api::V1::AssociateInvoicesController,
+    {controller: Api::V1::Associations::InvoicesController,
       model: Invoice,
       associated_model: Customer,
       associated_id: :customer_id,
       associated: :customer},
 
-    {controller: Api::V1::AssociateInvoicesController,
+    {controller: Api::V1::Associations::InvoicesController,
       model: Invoice,
       associated_model: Merchant,
       associated_id: :merchant_id,
       associated: :merchant},
 
-    {controller: Api::V1::AssociateInvoiceItemsController,
+    {controller: Api::V1::Associations::InvoiceItemsController,
       model: InvoiceItem,
       associated_model: Item,
       associated_id: :item_id,
       associated: :item},
 
-    {controller: Api::V1::AssociateInvoiceItemsController,
+    {controller: Api::V1::Associations::InvoiceItemsController,
       model: InvoiceItem,
       associated_model: Invoice,
       associated_id: :invoice_id,
       associated: :invoice},
 
-    {controller: Api::V1::AssociateTransactionsController,
+    {controller: Api::V1::Associations::TransactionsController,
       model: Transaction,
       associated_model: Invoice,
       associated_id: :invoice_id,

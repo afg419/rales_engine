@@ -1,5 +1,4 @@
-class Api::V1::FoundTransactionsController < ApplicationController
-  include FoundHelper
+class Api::V1::Found::TransactionsController < Api::V1::Found::BaseController
   respond_to :json
 
   def show

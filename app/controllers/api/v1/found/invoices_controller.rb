@@ -1,13 +1,12 @@
-class Api::V1::FoundCustomersController < ApplicationController
-  include FoundHelper
+class Api::V1::Found::InvoicesController < Api::V1::Found::BaseController
   respond_to :json
 
   def show
-    find_first(Customer, finder_params)
+    find_first(Invoice, finder_params)
   end
 
   def index
-    find_all(Customer, finder_params)
+    find_all(Invoice, finder_params)
   end
 
   private

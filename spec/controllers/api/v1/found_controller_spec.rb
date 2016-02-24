@@ -6,19 +6,19 @@ def found_controllers_with_models_attributes
       model: Merchant,
       attribute: :name},
 
-    {controller: Api::V1::FoundItemsController,
+    {controller: Api::V1::Found::ItemsController,
       model: Item,
       attribute: :name},
 
-    {controller: Api::V1::FoundCustomersController,
+    {controller: Api::V1::Found::CustomersController,
       model: Customer,
       attribute: :first_name},
 
-    {controller: Api::V1::FoundTransactionsController,
+    {controller: Api::V1::Found::TransactionsController,
       model: Transaction,
       attribute: :result},
 
-    {controller: Api::V1::FoundInvoicesController,
+    {controller: Api::V1::Found::InvoicesController,
       model: Invoice,
       attribute: :status}
   ]

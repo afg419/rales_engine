@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::AssociateInvoicesController, type: :controller do
+RSpec.describe Api::V1::Associations::InvoicesController, type: :controller do
   it "Returns merchant associated to invoice" do
     m = Invoice.create
     m.merchant = Merchant.create
