@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         collection do
           get "/find", to: "found/customers#show"
           get "/find_all", to: "found/customers#index"
-          get "/random", to: "random_customers#show"
+          get "/random", to: "random/customers#show"
         end
         member do
           get "/:association", to: "associations/customers#index"
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
         collection do
           get "/find", to: "found/items#show"
           get "/find_all", to: "found/items#index"
-          get "/random", to: "random_items#show"
+          get "/random", to: "random/items#show"
           get "/most_revenue", to: "most_revenue_items#index"
         end
         member do
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
         collection do
           get "/find", to: "found/invoices#show"
           get "/find_all", to: "found/invoices#index"
-          get "/random", to: "random_invoices#show"
+          get "/random", to: "random/invoices#show"
         end
         member do
           get "/:association", to: "associations/invoices#index"
@@ -55,7 +55,7 @@ Rails.application.routes.draw do
         collection do
           get "transactions/find", to: "found/transactions#show"
           get "transactions/find_all", to: "found/transactions#index"
-          get "transactions/random", to: "random_transactions#show"
+          get "transactions/random", to: "random/transactions#show"
         end
 
         member do
@@ -67,7 +67,7 @@ Rails.application.routes.draw do
         collection do
           get "invoice_items/find", to: "found/invoice_items#show"
           get "invoice_items/find_all", to: "found/invoice_items#index"
-          get "invoice_items/random", to: "random_invoice_items#show"
+          get "invoice_items/random", to: "random/invoice_items#show"
         end
         member do
           get "invoice_items/:id/:association", to: "associations/invoice_items#index"

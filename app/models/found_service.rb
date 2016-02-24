@@ -1,4 +1,4 @@
-module FoundHelper
+module FoundService
   def find_all(class_name, finder_params)
     if class_name.first.attributes.include?(finder_params.keys.first)
       case_insensitive_where(class_name, finder_params)
