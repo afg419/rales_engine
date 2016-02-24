@@ -2,7 +2,7 @@ require 'rails_helper'
 
 def random_controllers_with_models
   [
-    [Api::V1::RandomMerchantsController, Merchant],
+    [Api::V1::Random::MerchantsController, Merchant],
     [Api::V1::RandomItemsController, Item],
     [Api::V1::RandomCustomersController, Customer],
     [Api::V1::RandomTransactionsController, Transaction],

@@ -3,11 +3,11 @@ require 'rails_helper'
 
 def associate_controllers_with_models_plural_associated
   [
-    {controller: Api::V1::AssociateMerchantsController,
+    {controller: Api::V1::Associations::MerchantsController,
       model: Merchant,
       associated: :items},
 
-    {controller: Api::V1::AssociateMerchantsController,
+    {controller: Api::V1::Associations::MerchantsController,
       model: Merchant,
       associated: :invoices},
 

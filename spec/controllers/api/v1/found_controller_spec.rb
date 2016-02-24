@@ -2,7 +2,7 @@ require 'rails_helper'
 
 def found_controllers_with_models_attributes
   [
-    {controller: Api::V1::FoundMerchantsController,
+    {controller: Api::V1::Found::MerchantsController,
       model: Merchant,
       attribute: :name},
 

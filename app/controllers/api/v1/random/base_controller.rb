@@ -1,4 +1,6 @@
-module RandomHelper
+class Api::V1::Random::BaseController < ApplicationController
+  respond_to :json
+
   def show
     render json: random(controllers_model[params[:controller]])
   end

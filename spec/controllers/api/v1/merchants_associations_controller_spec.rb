@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::AssociateMerchantsController, type: :controller do
+RSpec.describe Api::V1::Associations::MerchantsController, type: :controller do
   it "Returns items associated to merchant" do
     m = Merchant.create(name: "Merchant1")
     i1 = m.items.create(name: "Item1")

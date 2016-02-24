@@ -6,15 +6,21 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1, defaults: {format: :json} do
-      # resources :items
-      get "merchants/find", to: "found_merchants#show"
-      get "merchants/find_all", to: "found_merchants#index"
-      get "merchants/random", to: "random_merchants#show"
-      get "merchants/revenue", to: "revenue_merchants#index"
-      get "merchants/most_revenue", to: "most_revenue_merchants#index"
+      resources :merchants, only:[:index, :show] do
+        collection do
+          get "/find", to: "found/merchants#show"
+          get "/find_all", to: "found/merchants#index"
+          get "/random", to: "random/merchants#show"
+          get "/revenue", to: "revenue/merchants#index"
+          get "/most_revenue", to: "revenue/most_merchants#index"
+        end
+
+        member do
+          get "/revenue", to: "revenue/merchants#show"
+          get "/:association", to: "associations/merchants#index"
+        end
+      end
       resources :merchants
-      get "merchants/:id/revenue", to: "revenue_merchants#show"
-      get "merchants/:id/:association", to: "associate_merchants#index"
 
       get "customers/find", to: "found_customers#show"
       get "customers/find_all", to: "found_customers#index"
