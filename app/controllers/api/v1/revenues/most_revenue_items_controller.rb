@@ -12,8 +12,4 @@ class Api::V1::Revenues::MostItemsController < ApplicationController
 
     respond_with items[0..(params[:quantity].to_i - 1)]
   end
-
-  def index
-
-  end
 end

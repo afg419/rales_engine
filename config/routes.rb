@@ -36,6 +36,7 @@ Rails.application.routes.draw do
           get "/find_all", to: "finders/items#index"
           get "/random", to: "randoms/items#show"
           get "/most_revenue", to: "revenues/most_items#index"
+          get "/most_items", to: "revenues/most_items_by_sold#index"
         end
         member do
           get "/:association", to: "associations/items#index"
