@@ -3,13 +3,25 @@ require 'rails_helper'
 RSpec.describe Api::V1::Associations::MerchantsController, type: :controller do
   it "Returns items associated to merchant" do
     m = Merchant.create(name: "Merchant1")
-    i1 = m.items.create(name: "Item1")
-    i2 = m.items.create(name: "Item2")
+    i1 = m.items.create(name: "Item1", unit_price: 10000, description: "desc1")
+    i2 = m.items.create(name: "Item2", unit_price: 20000, description: "desc2")
     get :index, format: :json, id: m.id, association: "items"
 
     expect(response.status).to eq 200
-    relevant_reply = JSON.parse(response.body).map{|x| {"id" => x["id"]}}
-    expect(relevant_reply).to eq [{"id" => i1["id"]}, {"id" => i2["id"]}]
+
+    reply = JSON.parse(response.body)
+
+    ids = reply.map{|item| item["id"]}
+    expect(ids).to eq [i1.id, i2.id]
+
+    names = reply.map{|item| item["name"]}
+    expect(names).to eq [i1.name, i2.name]
+
+    unit_prices = reply.map{|item| item["unit_price"]}
+    expect(unit_prices).to eq [i1.unit_price.to_s, i2.unit_price.to_s]
+
+    descriptions = reply.map{|item| item["description"]}
+    expect(descriptions).to eq [i1.description, i2.description]
   end
 
   it "Returns invoices associated to merchant" do
@@ -19,10 +31,13 @@ RSpec.describe Api::V1::Associations::MerchantsController, type: :controller do
     get :index, format: :json, id: m.id, association: "invoices"
 
     expect(response.status).to eq 200
-    # expect(JSON.parse(response.body)).to eq [{"id" => i1["id"]}, {"id" => i2["id"]}]
-    relevant_reply = JSON.parse(response.body).map{|x| {"id" => x["id"]}}
-    expect(relevant_reply).to eq [{"id" => i1["id"]}, {"id" => i2["id"]}]
+    reply = JSON.parse(response.body)
 
+    ids = reply.map{|item| item["id"]}
+    expect(ids).to eq [i1.id, i2.id]
+
+    statuses = reply.map{|item| item["status"]}
+    expect(statuses).to eq [i1.status, i2.status]
   end
 
   it "Bails if not associated" do
