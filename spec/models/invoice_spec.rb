@@ -8,7 +8,7 @@ RSpec.describe Invoice, type: :model do
     i2 = Invoice.create(transactions: [t2]).id
     i3 = Invoice.create.id
 
-    expected = [i2, i3]
+    expected = [i2]
     computed = Invoice.pending.map(&:id)
     expect(expected).to eq computed
   end

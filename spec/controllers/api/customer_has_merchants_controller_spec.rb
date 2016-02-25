@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::Revenues::MerchantsHaveCustomersController, type: :controller do
-  it "Gets revenue for multiple merchants" do
+RSpec.describe Api::V1::Revenues::CustomerHasMerchantsController, type: :controller do
+  it "Gets top merchant for customer" do
     m1 = Merchant.create(name: "Carl1")
     m2 = Merchant.create(name: "Carl2")
     t1 = Transaction.create(result: "success")
@@ -21,10 +21,10 @@ RSpec.describe Api::V1::Revenues::MerchantsHaveCustomersController, type: :contr
                         invoice_items: [item2],
                            created_at: "2012-03-16 11:55:05",
                            customer: c1)
-    get :show, format: :json, id: m1.id
+    get :show, format: :json, id: c1.id
 
     expect(response.status).to eq 200
-    expect(response.body).to eq ""{\"id\":#{c1.id}}""
+    expect(response.body).to eq "{\"id\":#{m1.id},\"name\":\"#{m1.name}\"}"
   end
 
 end

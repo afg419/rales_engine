@@ -15,7 +15,7 @@ class Invoice < ActiveRecord::Base
   end
 
   def self.pending
-    all - successful
+    joins(:transactions).where.not(transactions: {result: "success"})
   end
 
   def self.get_revenue
