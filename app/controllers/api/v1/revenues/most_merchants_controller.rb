@@ -2,12 +2,14 @@ class Api::V1::Revenues::MostMerchantsController < ApplicationController
   respond_to :json
 
   def index
-    merchants = Merchant.all.map do |merchant|
-      {'id' => merchant.id, 'name' => merchant.name, 'revenue' => merchant.get_revenue(params[:date])}
-    end.sort_by! do |merchant|
-      - merchant['revenue']
-    end
-
-    respond_with merchants[0..(params[:quantity].to_i - 1)]
+    quantity = params[:quantity]
+    respond_with Invoice
+                  .successful
+                  .joins(:invoice_items)
+                  .limit(quantity)
+                  .order("sum(unit_price * quantity) desc")
+                  .group(:merchant_id)
+                  .sum("unit_price * quantity")
+                  .map{|k,v| {"id" => k, "name" => Merchant.find(k).name, "revenue" => v}}
   end
 end

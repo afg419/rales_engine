@@ -3,7 +3,7 @@ class Api::V1::Revenues::MerchantsHaveCustomersController < ApplicationControlle
 
   def index
     merchant = Merchant.find(params[:id])
-    respond_with merchant.invoices.pending.map(&:customer_id)
+    respond_with merchant.invoices.pending.uniq
   end
 
   def show

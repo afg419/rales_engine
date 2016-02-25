@@ -9,6 +9,7 @@ Rails.application.routes.draw do
           get "/random", to: "randoms/merchants#show"
           get "/revenue", to: "revenues/merchants#index"
           get "/most_revenue", to: "revenues/most_merchants#index"
+          get "/most_items", to: "revenues/most_merchant_items#index"
         end
         member do
           get "/revenue", to: "revenues/merchants#show"
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
           get "/most_items", to: "revenues/most_items_by_sold#index"
         end
         member do
+          get "/best_day", to: "revenues/items_best_day#show"
           get "/:association", to: "associations/items#index"
         end
       end
